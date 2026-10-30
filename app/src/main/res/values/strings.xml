@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">词慕 · 毛怪助手歌词</string>
+    <string name="xposed_description">为词慕提供毛怪助手（MG Aide）的歌词，在状态栏逐字滚动显示。</string>
+    <string name="lyricon_module_description">提供毛怪助手的歌词</string>
+</resources>

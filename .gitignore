@@ -1,0 +1,14 @@
+﻿# Gradle / IDE
+.gradle/
+build/
+local.properties
+.idea/
+*.iml
+captures/
+.externalNativeBuild/
+.cxx/
+
+# 产物
+*.apk
+*.aab
+*.jks
