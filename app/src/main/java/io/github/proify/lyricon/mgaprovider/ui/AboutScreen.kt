@@ -113,16 +113,39 @@ fun AboutScreen(onOpenUrl: (String) -> Unit) {
             }
         }
 
-        SectionTitle(if (refreshing) "我的 GitHub 项目 · 更新中" else "我的 GitHub 项目")
+        // 本软件项目
+        val selfProject = remember(projects) {
+            val fromApi = projects.firstOrNull { it.name == GithubRepository.SELF_REPO }
+            GithubProject(
+                name = GithubRepository.SELF_REPO,
+                description = "词慕 · 毛怪助手歌词 —— 为毛怪助手提供歌词的 Lyricon provider",
+                language = "Kotlin",
+                stars = fromApi?.stars ?: 0,
+                isFork = false,
+                url = GithubRepository.SELF_URL,
+            )
+        }
+        val others = remember(projects) {
+            projects
+                .filter { !it.isFork && it.name != GithubRepository.SELF_REPO }
+                .take(3)
+        }
+
+        SectionTitle("本软件项目")
         GroupCard {
-            if (projects.isEmpty()) {
+            ProjectRow(selfProject) { onOpenUrl(selfProject.url) }
+        }
+
+        SectionTitle(if (refreshing) "我的其他 GitHub 项目 · 更新中" else "我的其他 GitHub 项目")
+        GroupCard {
+            if (others.isEmpty()) {
                 InfoRow("暂无缓存", "点击打开 GitHub") {
                     onOpenUrl(GithubRepository.PROFILE_URL)
                 }
             } else {
-                projects.forEachIndexed { index, project ->
+                others.forEachIndexed { index, project ->
                     ProjectRow(project) { onOpenUrl(project.url) }
-                    if (index != projects.lastIndex) RowDivider()
+                    if (index != others.lastIndex) RowDivider()
                 }
             }
         }

@@ -18,6 +18,9 @@
 | 状态栏歌词随播放进度滚动 | ✅ |
 | 模块首页「状态栏歌词」开关（Miuix 风格 UI） | ✅ |
 | 开关即时生效（无需重启毛怪助手），关闭后清空词慕歌词 | ✅ |
+| 关于页：头像 / junxiang255 / 简介「新来的毛怪」 / GitHub 项目列表 | ✅ |
+| GitHub API 每天只拉取一次，其余时间读本地缓存 | ✅ |
+
 > 不向毛怪助手界面注入任何悬浮窗或界面元素，所有开关都在本模块 App 内。
 
 ## 界面
@@ -73,6 +76,12 @@ hook 在毛怪助手进程，开关 UI 在模块进程：
 - `ConfigProvider`（`io.github.proify.lyricon.mgaprovider.config`，exported）用 `call("export")` 返回开关值
 - hook 侧 `MgPrefs.isEnabled()` 用 `ContentResolver.call` 读取，800 ms 缓存
 
+### 4. GitHub 项目列表：每天一次
+
+- `LaunchedEffect` 进入关于页时判断 `shouldRefresh()`：距上次拉取 > 24h 或无缓存才请求
+- 请求 `api.github.com/users/junxiang255/repos?sort=updated&per_page=30`
+- 成功后写 `filesDir/github_repos.json` 与 `filesDir/github_repos.fetched_at`
+- 其余时间直接用缓存，无网络请求；失败时回退缓存
 
 ## 目录结构
 

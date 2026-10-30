@@ -30,6 +30,7 @@ import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.vector.ImageVector
 import androidx.compose.ui.text.font.FontWeight
+import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
@@ -146,14 +147,16 @@ fun InfoRow(title: String, value: String, onClick: (() -> Unit)? = null) {
             .padding(horizontal = 18.dp, vertical = 14.dp),
         verticalAlignment = Alignment.CenterVertically,
     ) {
-        Text(title, color = MgColors.TextPrimary, fontSize = 16.sp)
-        Spacer(Modifier.weight(1f))
+        Text(title, color = MgColors.TextPrimary, fontSize = 16.sp, maxLines = 1)
+        Spacer(Modifier.width(16.dp))
         Text(
             value,
             color = MgColors.TextSecondary,
             fontSize = 14.sp,
             maxLines = 1,
             overflow = TextOverflow.Ellipsis,
+            textAlign = TextAlign.End,
+            modifier = Modifier.weight(1f),
         )
     }
 }

@@ -31,6 +31,10 @@ object GithubRepository {
     const val BIO = "新来的毛怪"
     const val PROFILE_URL = "https://github.com/junxiang255"
 
+    /** 本软件自身的仓库 */
+    const val SELF_REPO = "Lyricon-MGAide-Provider"
+    const val SELF_URL = "https://github.com/junxiang255/Lyricon-MGAide-Provider"
+
     private const val CACHE_FILE = "github_repos.json"
     private const val TIME_FILE = "github_repos.fetched_at"
     private const val TTL_MS = 24L * 60 * 60 * 1000L
