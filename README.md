@@ -4,7 +4,6 @@
 模块自带 Compose（仿 Miuix 风格）界面：首页是「状态栏歌词」开关与说明，第二页是关于与我的 GitHub 项目。
 
 - 作者：**junxiang255**（<https://github.com/junxiang255>）
-- 简介：新来的毛怪
 - 参考实现：<https://github.com/tomakino/LyricProvider>
 - 词慕开发文档：<https://tomakino.github.io/lyricon/zh-cn/developer/provider/>
 - Provider 库：`io.github.proify.lyricon:provider:0.1.70`
@@ -18,8 +17,6 @@
 | 状态栏歌词随播放进度滚动 | ✅ |
 | 模块首页「状态栏歌词」开关（Miuix 风格 UI） | ✅ |
 | 开关即时生效（无需重启毛怪助手），关闭后清空词慕歌词 | ✅ |
-| 关于页：头像 / junxiang255 / 简介「新来的毛怪」 / GitHub 项目列表 | ✅ |
-| GitHub API 每天只拉取一次，其余时间读本地缓存 | ✅ |
 
 > 不向毛怪助手界面注入任何悬浮窗或界面元素，所有开关都在本模块 App 内。
 
